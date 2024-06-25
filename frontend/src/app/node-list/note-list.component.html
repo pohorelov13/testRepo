@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span>Notes</span>
+</mat-toolbar>
+
+<div class="container">
+  <p>Search notes...</p>
+  <mat-form-field appearance="outline">
+    <!-- <mat-label>Search notes...</mat-label>&ndash;&gt;-->
+    <input matInput>
+  </mat-form-field>
+
+  <mat-nav-list>
+    <mat-list-item *ngFor="let note of filteredNotes" (click)="this.router.navigate(['/note', note.id])">
+      <mat-icon matListIcon>note</mat-icon>
+      <h4 matLine>{{ note.header }}</h4>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <button mat-raised-button color="primary" (click)="this.router.navigate(['/new'])">Add New Note</button>
+</div>
